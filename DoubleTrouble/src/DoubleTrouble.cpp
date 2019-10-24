@@ -1,15 +1,13 @@
-//============================================================================
-// Name        : DoubleTrouble.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
+/* Maylee Gagnon
+ * CS 2223 HW1 Double Trouble
+ * 10.24.2019
+ * C/C++ project, C++ managed build, Hello world C++ project (template)
+ */
 
 #include <iostream>
 using namespace std;
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "main" << endl;
 	return 0;
 }
