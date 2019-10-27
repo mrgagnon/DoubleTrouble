@@ -6,20 +6,22 @@
 
 #include <iostream>
 #include <cctype>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 int numG;
 int numY;
 int numO;
-int numLeft;
 bool isCPUturn;
 
 void printBoard(){
-	for (int i = 0; i < numG; i ++) {
+	for (int i = 0; i < numG; i++) {
 		cout << "G ";
 	}
 	cout << endl;
-	for (int i = 0; i < numY; i ++) {
+	for (int i = 0; i < numY; i++) {
 		cout << "Y ";
 	}
 	cout << endl;
@@ -53,7 +55,7 @@ bool updateBoard(char color, int num){
 	return false;
 }
 
-/*
+/* Prompts the player to make color and number of pieces for their turn. calls updateBoard
  * return True if player made a winning move. False otherwise
  */
 bool playerTurn() {
@@ -69,6 +71,9 @@ bool playerTurn() {
 		if (color != 'G' && color != 'Y' && color != 'O') {
 			cout << "invalid color. Try again" << endl;
 		}
+		if ((color == 'G' && numG <=0 ) || (color == 'Y' && numY <=0 ) || (color == 'O' && numO <=0 )) {
+			cout << "invalid color. No pieces left of that color. Try again" << endl;
+		}
 		else {
 			selectingColor = false;
 		}
@@ -77,44 +82,80 @@ bool playerTurn() {
 	while (selectingNum){
 		cout << "enter number of pieces" << endl;
 		cin >> num;
-		if (color == 'G') {
-			if (num <= numG && num > 0) {
-				selectingNum = false;
-			}
-			else {
-				cout << "invalid amount. Must be >=1 and <= number available. Try again" << endl;
-			}
-		}
-		else if (color == 'Y'){
-			if (num <= numY && num > 0) {
-				selectingNum = false;
-			}
-			else {
-				cout << "invalid amount. Must be >=1 and <= number available. Try again" << endl;
-			}
+		if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) {
+				cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
 		}
 		else {
-			if (num <= numO && num > 0) {
-				selectingNum = false;
-			}
-			else {
-				cout << "invalid amount. Must be >=1 and <= number available. Try again" << endl;
-			}
+			selectingNum = false ;
 		}
-	}
-	//cout << "color: " << color << " num: " << num;
+	} // end while(selectingNum)
+	cout << "Player " << color << " " << num << endl;
 	return updateBoard(color, num);
 }
 
+int randAmount(int max){
+	return (rand() % (max + 1 - 1))+1;
+}
+
+/* Checks to see if win is possible, if yes picks the move to win, if not picks randomly
+ *  Returns True if CPU made a winning move. False otherwise
+ */
 bool cpuTurn(){
-	return false;
-	//take away piece(s)
-	//return updateBoard(color, num);
+	bool winPossible;
+	char color;
+	int num;
+
+	winPossible = false;
+	/*
+	int xorResult = numG ^ numY ^ numO;
+	if (xorResult == 0){
+		winPossible == false;
+	}
+	else {
+		winPossible = true;
+	}
+	*/
+
+	if (winPossible){
+		// TODO IMPLEMENT follow strategy and find on that results in xor == 0
+	}
+
+	else { //random    //TODO FIX 1, g3, gets stuck in an infinite while loop
+		bool pickingColor = true;
+
+		while (pickingColor){ // pick random color, if pieces available picks random number of them
+			cout << "in while()" << endl;
+			int randNumColor = randAmount(3); // randomly pick 1,2,or 3
+			if (randNumColor == 1){
+				if (numG >= 1){
+					color = 'G';
+					pickingColor = false;
+					num = randAmount(numG);
+				}
+			}
+			if (randNumColor == 2){
+				if (numG >= 1){
+					color = 'Y';
+					pickingColor = false;
+					num = randAmount(numY);
+				}
+			}
+			if (randNumColor == 3){
+				if (numG >= 1){
+					color = 'O';
+					pickingColor = false;
+					num = randAmount(numO);
+				}
+
+			}
+		} // end while()
+		cout << "CPU " << color << " " << num << endl;
+	} //end else
+
+	return updateBoard(color, num);
 }
 
 int main() {
-	cout << "main" << endl;
-
 	cout << "enter '1' for player first and '2' for cpu first" << endl;
 	int first;
 	cin >> first;
@@ -131,13 +172,13 @@ int main() {
 	numG = 3;
 	numY = 7;
 	numO = 5;
-	numLeft = 15; // when numLeft = 0 then all of the pieces have been taken, whose ever turn it happening when this happens wins
 	printBoard();
 	bool stillPlaying = true;
+	//srand(time(0)); changes the seed, which means different set of random numbers every time program is run, commented for testing purposes
 
 	while (stillPlaying){
 		if (isCPUturn){
-			//cout << "cpu turn" << endl;
+			cout << "CPU turn" << endl;
 			if (cpuTurn()){
 				stillPlaying = false;
 				cout << "CPU Won!" << endl;
@@ -147,7 +188,7 @@ int main() {
 			}
 		}
 		else {
-			//cout << "player turn" << endl;
+			cout << "Player turn" << endl;
 			if (playerTurn()) {
 				stillPlaying = false;
 				cout << "Player Won!" << endl;
