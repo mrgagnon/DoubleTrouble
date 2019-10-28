@@ -65,52 +65,42 @@ bool playerTurn() {
 	char color;
 	int num;
 	while (selectingColor){
-		bool gettingColor = true;
-		while (gettingColor){ // get color, check cin actually worked/got a letter
-			cout << "enter color (G, Y, O)" << endl;
-			cin >> color;
-			if (cin.good()){
-				gettingColor = false;
+		cout << "enter color (G, Y, O)" << endl;
+		cin >> color;
+		if (cin.good()){
+			color = toupper(color);
+			if (color != 'G' && color != 'Y' && color != 'O') {
+				cout << "invalid color. Try again" << endl;
+			}
+			else if ((color == 'G' && numG <=0 ) || (color == 'Y' && numY <=0 ) || (color == 'O' && numO <=0 )) {
+				cout << "invalid color. No pieces left of that color. Try again" << endl;
 			}
 			else {
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				cout << "invalid input. Try again" << endl;
+				selectingColor = false;
 			}
 		}
-		color = toupper(color);
-
-		if (color != 'G' && color != 'Y' && color != 'O') {
-			cout << "invalid color. Try again" << endl;
-		}
-		else if ((color == 'G' && numG <=0 ) || (color == 'Y' && numY <=0 ) || (color == 'O' && numO <=0 )) {
-			cout << "invalid color. No pieces left of that color. Try again" << endl;
-		}
 		else {
-			selectingColor = false;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout << "invalid input. Try again" << endl;
 		}
-	}
+	} // end while selecting color
 
 	while (selectingNum){
-		bool gettingNum = true;
-		while (gettingNum){ // get number, check actually a number
-			cout << "enter number of pieces" << endl;
-			cin >> num;
-			if (cin.good()){
-				gettingNum = false;
+		cout << "enter number of pieces" << endl;
+		cin >> num;
+		if (cin.good()){
+			if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) { //check num in range
+				cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
 			}
 			else {
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				cout << "invalid input. Try again" << endl;
+				selectingNum = false;
 			}
 		}
-
-		if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) { //check num in range
-			cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
-		}
 		else {
-			selectingNum = false ;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout << "invalid input. Try again" << endl;
 		}
 	} // end while (selectingNum)
 	cout << "Player " << color << " " << num << endl;
@@ -228,7 +218,7 @@ int main() {
 	numO = 5;
 	printBoard();
 	bool stillPlaying = true;
-	//srand(time(0)); //changes the seed, which means different set of random numbers every time program is run, commented for testing purposes
+	srand(time(0)); //changes the seed/changes the random numbers
 
 	while (stillPlaying){
 		if (isCPUturn){
