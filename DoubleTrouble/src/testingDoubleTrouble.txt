@@ -1,0 +1,595 @@
+Script started on 2019-10-28 18:35:18-0400
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+10
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+g
+invalid input. Try again
+enter number of pieces
+1
+Player G 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU G 1
+G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+G
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+10
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+g
+invalid input. Try again
+enter number of pieces
+1
+Player G 1
+
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU Y 2
+
+Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+10
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+r
+invalid input. Try again
+enter number of pieces
+1
+Player Y 1
+
+Y Y Y Y 
+O O O O O 
+CPU turn
+CPU O 1
+
+Y Y Y Y 
+O O O O 
+Player turn
+enter color (G, Y, O)
+Y
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+11
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+e
+invalid input. Try again
+enter number of pieces
+1 2
+Player Y 2
+
+Y Y 
+O O O O 
+CPU turn
+CPU O 2
+
+Y Y 
+O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+
+Y Y 
+O 
+CPU turn
+CPU Y 1
+
+Y 
+O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+12
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+o u
+invalid input. Try again
+enter number of pieces
+1
+Player O 1
+
+Y 
+
+CPU turn
+CPU Y 1
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ a./out
+bash: a./out: No such file or directory
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+O
+enter number of pieces
+-1
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+-2
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+19
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+u
+invalid input. Try again
+enter number of pieces
+1 3 6
+invalid amount. Range is [1,number available of color]. Try again
+enter number of pieces
+4
+Player O 4
+G G G 
+Y Y Y Y Y Y Y 
+O 
+CPU turn
+CPU Y 5
+G G G 
+Y Y 
+O 
+Player turn
+enter color (G, Y, O)
+1
+invalid color. Try again
+enter color (G, Y, O)
+r
+invalid color. Try again
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+G G G 
+Y Y 
+
+CPU turn
+CPU G 1
+G G 
+Y Y 
+
+Player turn
+enter color (G, Y, O)
+o
+invalid color. No pieces left of that color. Try again
+enter color (G, Y, O)
+g
+enter number of pieces
+1
+Player G 1
+G 
+Y Y 
+
+CPU turn
+CPU Y 1
+G 
+Y 
+
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+1
+Player G 1
+
+Y 
+
+CPU turn
+CPU Y 1
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+y g
+enter number of pieces
+3
+Player G 3
+
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU Y 2
+
+Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+g
+invalid color. No pieces left of that color. Try again
+enter color (G, Y, O)
+y
+enter number of pieces
+1
+Player Y 1
+
+Y Y Y Y 
+O O O O O 
+CPU turn
+CPU O 1
+
+Y Y Y Y 
+O O O O 
+Player turn
+enter color (G, Y, O)
+o y
+enter number of pieces
+4
+Player Y 4
+
+
+O O O O 
+CPU turn
+CPU O 4
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./aout.[K[K[K[K.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+7
+Player Y 7
+G G G 
+
+O O O O O 
+CPU turn
+CPU O 2
+G G G 
+
+O O O 
+Player turn
+enter color (G, Y, O)
+y
+invalid color. No pieces left of that color. Try again
+enter color (G, Y, O)
+o
+enter number of pieces
+3
+Player O 3
+G G G 
+
+
+CPU turn
+CPU G 3
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+3
+invalid input exiting
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+
+g
+invalid input exiting
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+2
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU G 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+2
+Player G 2
+
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU Y 2
+
+Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+2
+Player Y 2
+
+Y Y Y 
+O O O O O 
+CPU turn
+CPU O 2
+
+Y Y Y 
+O O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+
+Y Y Y 
+O O 
+CPU turn
+CPU Y 1
+
+Y Y 
+O O 
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+1
+Player Y 1
+
+Y 
+O O 
+CPU turn
+CPU O 1
+
+Y 
+O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+
+Y 
+
+CPU turn
+CPU Y 1
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./aout.[K[K[K[K.out
+enter '1' for player first and '2' for cpu first
+2
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU G 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O 
+CPU turn
+CPU Y 1
+G G 
+Y Y Y Y Y Y 
+O O O O 
+Player turn
+enter color (G, Y, O)
+y 
+enter number of pieces
+3
+Player Y 3
+G G 
+Y Y Y 
+O O O O 
+CPU turn
+CPU O 3
+G G 
+Y Y Y 
+O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+1
+Player O 1
+G G 
+Y Y Y 
+
+CPU turn
+CPU Y 1
+G G 
+Y Y 
+
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+1
+Player Y 1
+G G 
+Y 
+
+CPU turn
+CPU G 1
+G 
+Y 
+
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+1
+Player G 1
+
+Y 
+
+CPU turn
+CPU Y 1
+
+
+
+CPU Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+1
+Player G 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU Y 7
+G G 
+
+O O O O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+3
+Player O 3
+G G 
+
+O O 
+CPU turn
+CPU G 2
+
+
+O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+2
+Player O 2
+
+
+
+Player Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ ./a.out
+enter '1' for player first and '2' for cpu first
+1
+G G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+g
+enter number of pieces
+1
+Player G 1
+G G 
+Y Y Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU G 2
+
+Y Y Y Y Y Y Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+2
+Player Y 2
+
+Y Y Y Y Y 
+O O O O O 
+CPU turn
+CPU Y 4
+
+Y 
+O O O O O 
+Player turn
+enter color (G, Y, O)
+o
+enter number of pieces
+4
+Player O 4
+
+Y 
+O 
+CPU turn
+CPU O 1
+
+Y 
+
+Player turn
+enter color (G, Y, O)
+y
+enter number of pieces
+1
+Player Y 1
+
+
+
+Player Won!
+]0;mayleeg@Xubuntu-AY2018-19: ~/git/DoubleTrouble/DoubleTrouble/src[01;32mmayleeg@Xubuntu-AY2018-19[00m:[01;34m~/git/DoubleTrouble/DoubleTrouble/src[00m$ exit
+exit
+
+Script done on 2019-10-28 18:42:55-0400

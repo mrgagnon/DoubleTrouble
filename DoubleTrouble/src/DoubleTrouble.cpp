@@ -17,19 +17,23 @@ int numY;
 int numO;
 bool isCPUturn;
 
+
 void printBoard(){
 	for (int i = 0; i < numG; i++) {
 		cout << "G ";
 	}
 	cout << endl;
+	//cout << "(" << numG << ")" << endl;
 	for (int i = 0; i < numY; i++) {
 		cout << "Y ";
 	}
 	cout << endl;
+	//cout << "(" << numY << ")" << endl;
 	for (int i = 0; i < numO; i ++) {
 		cout << "O ";
 	}
 	cout << endl;
+	//cout << "(" << numO << ")" << endl;
 }
 
 /** Takes away the appropriate pieces, prints the updated board, checks if winner
