@@ -34,7 +34,7 @@ void printBoard(){
 /** Takes away the appropriate pieces, prints the updated board, checks if winner
  *  @param color Which color group to take from G Y, O
  *  @param num How many pieces from the group to take away [1,numAvailable]
- *  return True if the last piece removed aka there's a winner. False otherwise
+ *  @return True if the last piece removed aka there's a winner. False otherwise
  */
 bool updateBoard(char color, int num){
 	if (color == 'G'){
@@ -79,53 +79,84 @@ bool playerTurn() {
 		}
 	}
 
+//TODO FIX !!! user enters o (o as in orange) then o (o as in orange) by "mistake" causes issues
 	while (selectingNum){
 		cout << "enter number of pieces" << endl;
 		cin >> num;
 		if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) {
-				cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
+			cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
 		}
 		else {
 			selectingNum = false ;
 		}
-	} // end while(selectingNum)
+	}
 	cout << "Player " << color << " " << num << endl;
 	return updateBoard(color, num);
 }
 
 int randAmount(int max){
-	//return (rand() % (max + 1 - 1))+1;
 	return rand() % max +1; // [1,max]
 }
 
-/* Checks to see if win is possible, if yes picks the move to win, if not picks randomly
- *  Returns True if CPU made a winning move. False otherwise
+/* @param int i int j int k, the three values to be XORed
+ * return false if no move toward a win available. return true if this is a move
+ */
+bool checkXOR(int i, int j, int k){
+	int xorResult = i^j^k;
+	if (xorResult == 0){
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+/* Checks to see if win is possible, if yes picks the move to win, if not picks randomly.
+ * Randomly: picks a random color, if pieces available picks random amount of them else pieces another color
+ * @ return True if CPU made a winning move. False otherwise
  */
 bool cpuTurn(){
 	bool winPossible;
 	char color;
 	int num;
 
-	winPossible = false;
-	/*
-	int xorResult = numG ^ numY ^ numO;
-	if (xorResult == 0){
-		winPossible == false;
-	}
-	else {
-		winPossible = true;
-	}
-	*/
+	winPossible = checkXOR(numG, numY, numO);
 
 	if (winPossible){
-		// TODO IMPLEMENT follow strategy and find on that results in xor == 0
-	}
+		int tempNumG = numG;
+		int tempNumY = numY;
+		int tempNumO = numO;
+		for (int i = 1; i <= numG; i++){
+			tempNumG--;
+			if (!checkXOR(tempNumG, tempNumY, tempNumO)){ // want board == 0, check XOR returns false is = 0, so !false = true so board = 0
+				cout << "CPU G " << i << endl;
+				return updateBoard('G',i);
+			}
+		}
+		tempNumG = numG;
+		for (int i = 1; i <= numY; i++){
+			tempNumY--;
+			if (!checkXOR(tempNumG, tempNumY, tempNumO)){
+				cout << "CPU Y " << i << endl;
+				return updateBoard('Y',i);
+			}
+		}
+		tempNumY = numY;
+		for (int i = 1; i <= numO; i++){
+			tempNumO--;
+			if (!checkXOR(tempNumG, tempNumY, tempNumO)){
+				cout << "CPU O " << i << endl;
+				return updateBoard('O',i);
+			}
+		}
 
-	else { //random    //TODO FIX 1, g3, gets stuck in an infinite while loop, picks 2 for the color Yellow
+	} // end if strategy possible
+
+	else { // picking randomly
 		bool pickingColor = true;
 
-		while (pickingColor){ // pick random color, if pieces available picks random number of them
-			int randNumColor = randAmount(3); // randomly pick 1,2,or 3
+		while (pickingColor){
+			int randNumColor = randAmount(3);
 			if (randNumColor == 1){
 				if (numG >= 1){
 					color = 'G';
@@ -146,9 +177,8 @@ bool cpuTurn(){
 					pickingColor = false;
 					num = randAmount(numO);
 				}
-
 			}
-		} // end while()
+		} // end while(pickingColor)
 		cout << "CPU " << color << " " << num << endl;
 	} //end else
 
@@ -169,12 +199,13 @@ int main() {
 	else {
 		isCPUturn = true;
 	}
+
 	numG = 3;
 	numY = 7;
 	numO = 5;
 	printBoard();
 	bool stillPlaying = true;
-	//srand(time(0)); changes the seed, which means different set of random numbers every time program is run, commented for testing purposes
+	//srand(time(0)); //changes the seed, which means different set of random numbers every time program is run, commented for testing purposes
 
 	while (stillPlaying){
 		if (isCPUturn){
@@ -197,6 +228,6 @@ int main() {
 				isCPUturn = true;
 			}
 		}
-	}
+	}// end while(stillPlaying)
 	return 0;
 }
