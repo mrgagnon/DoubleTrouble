@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits>
 using namespace std;
 
 int numG;
@@ -64,8 +65,19 @@ bool playerTurn() {
 	char color;
 	int num;
 	while (selectingColor){
-		cout << "enter color (G, Y, O)" << endl;
-		cin >> color;
+		bool gettingColor = true;
+		while (gettingColor){ // get color, check cin actually worked/got a letter
+			cout << "enter color (G, Y, O)" << endl;
+			cin >> color;
+			if (cin.good()){
+				gettingColor = false;
+			}
+			else {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(),'\n');
+				cout << "invalid input. Try again" << endl;
+			}
+		}
 		color = toupper(color);
 
 		if (color != 'G' && color != 'Y' && color != 'O') {
@@ -79,17 +91,28 @@ bool playerTurn() {
 		}
 	}
 
-//TODO FIX !!! user enters o (o as in orange) then o (o as in orange) by "mistake" causes issues
 	while (selectingNum){
-		cout << "enter number of pieces" << endl;
-		cin >> num;
-		if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) {
+		bool gettingNum = true;
+		while (gettingNum){ // get number, check actually a number
+			cout << "enter number of pieces" << endl;
+			cin >> num;
+			if (cin.good()){
+				gettingNum = false;
+			}
+			else {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(),'\n');
+				cout << "invalid input. Try again" << endl;
+			}
+		}
+
+		if ((num <= 0) || (color == 'G' && num > numG) || (color == 'Y' && num > numY) || (color == 'O' && num > numO)) { //check num in range
 			cout << "invalid amount. Range is [1,number available of color]. Try again" << endl;
 		}
 		else {
 			selectingNum = false ;
 		}
-	}
+	} // end while (selectingNum)
 	cout << "Player " << color << " " << num << endl;
 	return updateBoard(color, num);
 }
@@ -150,7 +173,7 @@ bool cpuTurn(){
 			}
 		}
 
-	} // end if strategy possible
+	} // end if - strategy possible
 
 	else { // picking randomly
 		bool pickingColor = true;
