@@ -71,7 +71,7 @@ bool playerTurn() {
 		if (color != 'G' && color != 'Y' && color != 'O') {
 			cout << "invalid color. Try again" << endl;
 		}
-		if ((color == 'G' && numG <=0 ) || (color == 'Y' && numY <=0 ) || (color == 'O' && numO <=0 )) {
+		else if ((color == 'G' && numG <=0 ) || (color == 'Y' && numY <=0 ) || (color == 'O' && numO <=0 )) {
 			cout << "invalid color. No pieces left of that color. Try again" << endl;
 		}
 		else {
