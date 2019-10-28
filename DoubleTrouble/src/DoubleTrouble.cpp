@@ -94,7 +94,8 @@ bool playerTurn() {
 }
 
 int randAmount(int max){
-	return (rand() % (max + 1 - 1))+1;
+	//return (rand() % (max + 1 - 1))+1;
+	return rand() % max +1; // [1,max]
 }
 
 /* Checks to see if win is possible, if yes picks the move to win, if not picks randomly
@@ -120,11 +121,10 @@ bool cpuTurn(){
 		// TODO IMPLEMENT follow strategy and find on that results in xor == 0
 	}
 
-	else { //random    //TODO FIX 1, g3, gets stuck in an infinite while loop
+	else { //random    //TODO FIX 1, g3, gets stuck in an infinite while loop, picks 2 for the color Yellow
 		bool pickingColor = true;
 
 		while (pickingColor){ // pick random color, if pieces available picks random number of them
-			cout << "in while()" << endl;
 			int randNumColor = randAmount(3); // randomly pick 1,2,or 3
 			if (randNumColor == 1){
 				if (numG >= 1){
@@ -134,14 +134,14 @@ bool cpuTurn(){
 				}
 			}
 			if (randNumColor == 2){
-				if (numG >= 1){
+				if (numY >= 1){
 					color = 'Y';
 					pickingColor = false;
 					num = randAmount(numY);
 				}
 			}
 			if (randNumColor == 3){
-				if (numG >= 1){
+				if (numO >= 1){
 					color = 'O';
 					pickingColor = false;
 					num = randAmount(numO);
